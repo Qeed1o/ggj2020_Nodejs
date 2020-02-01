@@ -11,7 +11,7 @@ class Router{
     }
 
     route(){
-        this.app.get('/', (req: Request, res: Response) => {
+        this.app.get('/getRandomGameField', (req: Request, res: Response) => {
             res.send(JSON.stringify(GameField, null, "\n"));
         });
 

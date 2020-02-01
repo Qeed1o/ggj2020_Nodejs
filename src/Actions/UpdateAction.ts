@@ -1,17 +1,24 @@
-import { GameFieldDTO, PipeDTO } from "../DTO";
+import { GameFieldDTO, PipeDTO, UpdateCommandDTO } from "../DTO";
 import { GameField, actions } from "../Utils/globals";
-import { UpdateCommandDTO } from "../DTO/UpdateCommandDTO";
 
 const Move = (gameField: GameFieldDTO, {currentCol, currentRow, newCol, newRow}: UpdateCommandDTO): GameFieldDTO => {
-    const tmp: PipeDTO = gameField["rows"][currentRow][currentCol];
-    gameField["rows"][currentRow][currentCol] = gameField["rows"][newRow][newCol];
-    gameField["rows"][newRow][newCol] = tmp;
+    const tmp: PipeDTO = gameField.rows[currentRow][currentCol];
+    gameField.rows[currentRow][currentCol] = gameField.rows[newRow][newCol];
+    gameField.rows[newRow][newCol] = tmp;
     console.log("[UpdateAction]: Move newGameField");
     return gameField;
 }
 
+const Rotate = (gameField: GameFieldDTO, {currentCol, currentRow}: UpdateCommandDTO): GameFieldDTO => {
+    const cell: PipeDTO = gameField.rows[currentRow][currentCol];
+    cell.entryPositions[0] = (cell.entryPositions[0] + 1) % 4;
+    cell.entryPositions[1] = (cell.entryPositions[1] + 1) % 4;
+    cell.entryPositions.sort();
+    gameField.rows[currentRow][currentCol] = cell;
+    return gameField;
+}
+
 export function UpdateAction(command: UpdateCommandDTO): Object {
-    const PipesRotationArray: Array<number> = [0, 90, 180, 270];
     let response: GameFieldDTO;
 
     switch (command.action) {
@@ -20,11 +27,10 @@ export function UpdateAction(command: UpdateCommandDTO): Object {
             response = Move(GameField, command);
             break;
 
-        // case actions.Rotate:
-        //     const newRotation: number = 
-        //         prevRotation + 1 % PipesRotationArray.length;
-        //     console.log(`[UpdateAction]: Rotate`);
-        //     break;
+        case actions.Rotate:
+            console.log(`[UpdateAction]: Rotate`);
+            response = Rotate(GameField, command);
+            break;
     }
     return response;
 }
