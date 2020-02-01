@@ -1,4 +1,4 @@
-import express, { Response } from 'express';
+import express, { Request, Response } from 'express';
 
 class Router{
     private app : express.Application;
@@ -7,7 +7,7 @@ class Router{
     }
 
     route(){
-        this.app.get('/', (req: Express.Request, res: Response) => {
+        this.app.get('/', (req: Request, res: Response) => {
             res.send('for');
         });
     }
