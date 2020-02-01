@@ -1,10 +1,6 @@
-import * as express from "express";
-
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send("test");
-});
-
-app.listen(3000);
-
+import Server from './Server/Server'
+const server : Server = new Server();
+console.log('Before server.run() check');
+server.run();
+console.clear()
+console.log('App started on port : ' + server.getPort());
