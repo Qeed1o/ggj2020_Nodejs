@@ -1,5 +1,5 @@
 import { GameFieldDTO, PipeDTO, UpdateCommandDTO } from "../DTO";
-import { GameField, actions } from "../Utils/globals";
+import { actions } from "../Utils/globals";
 
 const Move = (gameField: GameFieldDTO, {currentCol, currentRow, newCol, newRow}: UpdateCommandDTO): GameFieldDTO => {
     const tmp: PipeDTO = gameField.rows[currentRow][currentCol];
@@ -18,18 +18,18 @@ const Rotate = (gameField: GameFieldDTO, {currentCol, currentRow}: UpdateCommand
     return gameField;
 }
 
-export function UpdateAction(command: UpdateCommandDTO): Object {
-    let response: GameFieldDTO;
+export function UpdateAction(gameField: GameFieldDTO ,command: UpdateCommandDTO): GameFieldDTO {
+    let response:GameFieldDTO = gameField;
 
     switch (command.action) {
         case actions.Move:
             console.log(`[UpdateAction]: Move`);
-            response = Move(GameField, command);
+            response = Move(gameField, command);
             break;
 
         case actions.Rotate:
             console.log(`[UpdateAction]: Rotate`);
-            response = Rotate(GameField, command);
+            response = Rotate(gameField, command);
             break;
     }
     return response;
