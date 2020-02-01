@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import Router from './Routing'
 
 class Server{
@@ -9,6 +10,7 @@ class Server{
     constructor(){
         this.app = express();
         this.router = new Router(this.app);
+        this.app.use(bodyParser.json());
     }
 
     run(){
