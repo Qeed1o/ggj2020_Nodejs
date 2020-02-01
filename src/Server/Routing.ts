@@ -1,5 +1,8 @@
 import express, { Request, Response } from 'express';
 import { UpdateAction } from '../Actions';
+import { customGameField1 } from '../DTO/GameFieldDTO';
+import { GameField } from '../Utils/globals';
+import { UpdateCommandDTO } from '../DTO/UpdateCommandDTO';
 
 class Router{
     private app : express.Application;
@@ -9,11 +12,16 @@ class Router{
 
     route(){
         this.app.get('/', (req: Request, res: Response) => {
-            res.send('test');
+            res.send(JSON.stringify(GameField, null, "\n"));
         });
 
         this.app.post('/update', (req: Request, res: Response) => {
-            res.send(UpdateAction(req.body));
+            const command: UpdateCommandDTO = req.body;
+            res.send(UpdateAction(command));
+        });
+
+        this.app.get('/getGameField', (req: Request, res: Response) => { // Temporary method
+            res.send(JSON.stringify(customGameField1));
         });
     }
 }
