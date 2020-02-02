@@ -9,7 +9,7 @@ export function RandomizeAction(gameField: GameFieldDTO): GameFieldDTO{
     console.log(gf);
     for(let i = 0; i < 10; i++){
         action = actions[Math.random() > 0.5 ? "Move" : "Rotate"];
-        // console.log(`[RandomizeAction]: ${action}`);
+        console.log(`[RandomizeAction]: ${action}`);
         currentCol = ~~(Math.random() * 4 + 0.5);
         currentRow = ~~(Math.random() * 4 + 0.5);
         newCol = null; newRow = null;

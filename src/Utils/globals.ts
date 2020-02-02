@@ -13,4 +13,4 @@ export const ConstGameField: GameFieldDTO = {rows:[
     [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
     [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
 ]}
-export let GameField: GameFieldDTO = copy(ConstGameField);
+export const GameField: GameFieldDTO = copy(ConstGameField);
