@@ -5,8 +5,13 @@ import { actions } from "../Utils/globals";
 
 export function RandomizeAction(gameField: GameFieldDTO): GameFieldDTO{
     let gf: GameFieldDTO = copy(gameField);
-    let action, currentCol, currentRow, newCol, newRow;
-    console.log(gf);
+    let 
+        action: actions, 
+        currentCol:number, 
+        currentRow:number, 
+        newCol:number,
+        newRow:number;
+
     for(let i = 0; i < 10; i++){
         action = actions[Math.random() > 0.5 ? "Move" : "Rotate"];
         console.log(`[RandomizeAction]: ${action}`);

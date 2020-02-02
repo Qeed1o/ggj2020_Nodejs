@@ -7,10 +7,10 @@ export enum actions {
 }
 
 export const ConstGameField: GameFieldDTO = {rows:[
-    [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
-    [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
-    [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
-    [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
-    [{entryPositions: [0, 2], id: 0}, {entryPositions: [0, 2], id: 2}, {entryPositions: [0, 2], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
+    [{entryPositions: [1, 3], id: 0}, {entryPositions: [1, 2], id: 2}, {entryPositions: [2, 3], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [1, 2], id: 5},],
+    [{entryPositions: [1, 3], id: 0}, {entryPositions: [1, 2], id: 2}, {entryPositions: [2, 3], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [1, 2], id: 5},],
+    [{entryPositions: [1, 3], id: 0}, {entryPositions: [1, 2], id: 2}, {entryPositions: [2, 3], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
+    [{entryPositions: [1, 3], id: 0}, {entryPositions: [1, 2], id: 2}, {entryPositions: [2, 3], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
+    [{entryPositions: [1, 3], id: 0}, {entryPositions: [1, 2], id: 2}, {entryPositions: [2, 3], id: 3}, {entryPositions: [0, 2], id: 4}, {entryPositions: [0, 2], id: 5},],
 ]}
 export const GameField: GameFieldDTO = copy(ConstGameField);
