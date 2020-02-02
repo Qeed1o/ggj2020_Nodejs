@@ -10,13 +10,13 @@ export function RandomizeAction(gameField: GameFieldDTO): GameFieldDTO{
     for(let i = 0; i < 10; i++){
         action = actions[Math.random() > 0.5 ? "Move" : "Rotate"];
         // console.log(`[RandomizeAction]: ${action}`);
-        currentCol = ~~(Math.random() * 4);
-        currentRow = ~~(Math.random() * 4);
+        currentCol = ~~(Math.random() * 4 + 0.5);
+        currentRow = ~~(Math.random() * 4 + 0.5);
         newCol = null; newRow = null;
 
-        if (action == "rotate"){
-            newCol = ~~(Math.random() * 4),
-            newRow = ~~(Math.random() * 4);
+        if (action == "move"){
+            newCol = ~~(Math.random() * 4 + 0.5),
+            newRow = ~~(Math.random() * 4 + 0.5);
         }
         
         let command: UpdateCommandDTO = {action, currentRow, currentCol, newRow, newCol};

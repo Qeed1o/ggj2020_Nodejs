@@ -24,6 +24,8 @@ export function UpdateAction(gameField: GameFieldDTO ,command: UpdateCommandDTO)
     switch (command.action) {
         case actions.Move:
             console.log(`[UpdateAction]: Move`);
+            console.log(`[UpdateAction]: command `);
+            console.log(command);
             response = Move(gameField, command);
             break;
 
